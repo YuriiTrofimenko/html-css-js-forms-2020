@@ -27,4 +27,8 @@ form.onsubmit = (e) => {
   console.log(form.elements.gender)
   console.log(form.elements['skills[]'])
   form.elements.gender.forEach((value, index, array) => console.log(index, value.checked))
+  Array.from(form.elements.citySelect.options)
+    .filter(option => option.selected)
+    .map(option => option.value)
+    .forEach((value, index, array) => console.log(value))
 }

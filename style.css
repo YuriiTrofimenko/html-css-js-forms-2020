@@ -20,7 +20,10 @@ form > div > label {
 }
 form > div > input[type=text],
 form > div > input[type=email],
-form > div > input[type=password] {
+form > div > input[type=password],
+form > div > fieldset > input[type=radio],
+form > div > fieldset > input[type=checkbox],
+form > div > fieldset > textarea {
   width: 100%;
   border: 0;
   padding: 20px 20px 20px 50px;

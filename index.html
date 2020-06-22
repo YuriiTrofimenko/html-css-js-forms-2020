@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <form name="character">
+    <div>
+      <!-- Единственное требование к содержимому полей ввода Имя и Фамилия -
+      минимум один любой символ, поэтому достаточно атрибута required в разметке -->
+      <!-- Атрибуту placeholder обязательно присваивается строка из одного пробела,
+      чтобы заполнитель присутствовал в элементе ввода, когда курсор не активен на элементе,
+      и исчезал, когда курсор получен (для проверки на отсутствие значения в элементе в css-коде)  -->
+      <input id="first_name" name="first_name" type="text" required placeholder=" "></intput>
+      <label for="first_name">First Name</label>
+    </div>
+    <div>
+      <input id="last_name" name="last_name" type="text" required placeholder=" "></intput>
+      <label for="last_name">Last Name</label>
+    </div>
+    <div>
+      <!-- Встроенная в HTML проверка содержимого поля ввода на соответствие шаблону
+      адреса электронной почты-->
+      <input type="email" id="email" name="email" required placeholder=" " />
+      <label for="email">Email Address</label>
+      <div class="requirements">
+        Must be a valid email address.
+      </div>
+    </div>
+    <div>
+      <!-- Регулярное выражение, в котором три правила "просмотр наперед" проверяют,
+      есть ли во введенной строке как минимум одна цифра и одна большая буква и одна маленькая буква,
+      а указатель числа в конце - что всего таких символов - не менее шести -->
+      <input type="password" id="password" name="password" required placeholder=" " pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" />
+      <label for="password">Password</label>
+      <div class="requirements">
+        Your password must be at least 6 characters as well as contain at least one uppercase, one lowercase, and one number.
+      </div>
+    </div>
+    <!-- К сожалению, задать проверку, выбран ли хотя бы один элемент в группе
+       чисто декларативно - невозможно -->
+    <div>
+      <input name="gender" type="radio">Mail</intput>
+      <input name="gender" type="radio">Femail</intput>
+    </div>
+    <div>
+      <input name="skills[]" type="checkbox">Frontend</intput>
+      <input name="skills[]" type="checkbox">Backend</intput>
+      <input name="skills[]" type="checkbox">Database</intput>
+    </div>
+    <!-- Чтобы данные формы не содержали ненужный паоаметр, добавляемый кнопкой отправки,
+    не испольуем в разметке кнопки отправки атрибут name -->
+    <input value="Submit" type="submit"></input>
+  </form>
+  <script src="main.js"></script>
+</body>
+</html>
